@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>page 2</title>
+    <style>
+         body{
+            font-family: Arial;
+            max-width: 600px;
+            margin: auto;
+        }
+        textarea{
+            width: 100%;
+            height: 120px;
+            padding: 10px;
+        }
+        button{
+            padding: 12px 20px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        #result{
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            display: none;
+        }
+    </style>
+    </style>
+</head>
+<body>
+    
+<h2>🩺 Free AI Health Check</h2>
+<p>Describe your issue:</p>
+
+<textarea id="issue" placeholder="Low sales, listing suppressed, account warning..."></textarea>
+
+<button onclick="runAI()">Run Health Check</button>
+
+<div id="result"></div>
+
+<script>
+function runAI(){
+    let issue = document.getElementById("issue").value;
+    let result = document.getElementById("result");
+
+    if(issue.trim() === ""){
+        alert("Please describe your problem");
+        return;
+    }
+
+    let aiOutput = "🔍 AI Diagnosis:\n\n";
+
+    if(issue.toLowerCase().includes("sales")){
+        aiOutput += "• Low sales detected\n";
+        aiOutput += "• Improve keywords & pricing\n";
+        aiOutput += "• Optimize main image\n";
+    }
+    else if(issue.toLowerCase().includes("warning")){
+        aiOutput += "• Account risk detected\n";
+        aiOutput += "• Review policy compliance immediately\n";
+    }
+    else{
+        aiOutput += "• Account looks healthy\n";
+        aiOutput += "• Minor optimization recommended\n";
+    }
+
+    result.style.display = "block";
+    result.innerText = aiOutput;
+}
+</script>
+</body>
+</html>
